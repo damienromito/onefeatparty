@@ -1,0 +1,141 @@
+$blue : #63849d;
+
+
+@font-face {
+  font-family: 'Ferb';
+  src: url("fonts/ferb/ferblight.eot");
+  src: url("fonts/ferb/ferblight.eot?#iefix") format("embedded-opentype"), url("fonts/ferb/ferblight.woff") format("woff"), url("fonts/ferb/ferblight.ttf") format("truetype"), url("fonts/ferb/ferblight.svg#") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+
+@font-face {
+  font-family: 'Ferb';
+  src: url("fonts/ferb/ferbheavyitalic.eot");
+  src: url("fonts/ferb/ferbheavyitalic.eot?#iefix") format("embedded-opentype"), url("fonts/ferb/ferbheavyitalic.woff") format("woff"), url("fonts/ferb/ferbheavyitalic.ttf") format("truetype"), url("fonts/ferb/ferbheavyitalic.svg#") format("svg");
+  font-weight: bold;
+  font-style: italic; }
+
+html, body {width: 100%; height: 100%; padding: 0; margin: 0;height: 100%;
+	width: 100%;} 
+body {
+/*-webkit-radial-gradient(50% 20%,ellipse farthest-corner,rgba(0,0,0,0.6),#000);*/
+	background-image: url(images/bg_black.png) ; 
+	background-repeat: repeat;
+	font-family: "Helvetica";
+	height: 100%;
+	width: 100%;
+
+}
+#background{
+	background:url(images/bg_radial.png) no-repeat 0 0px;
+	position: absolute;
+	height: 3030px;
+	width:3030px;
+	left: -1430px;
+	top:-1430px;
+	-webkit-animation-name: rotate;
+	-webkit-animation-duration:200s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-origin: center;
+
+}
+
+@-webkit-keyframes rotate {
+  from {-webkit-transform:rotate(0deg);}
+  to {  -webkit-transform:rotate(360deg);}
+}
+
+header{
+	h1{font-style:italic;float: left; font-size:72px;background : url(images/logo.png) no-repeat ;padding: 10px 0 0 100px; height: 95px; margin-left: 60px}
+	font-family: "Ferb"; 
+	font-style:italic;
+	font-weight:bold;
+	text-transform: uppercase; 
+	font-size: 60px; 
+	color: white; 
+	margin: 0; 
+	padding: 30px 0px;
+	width:100%;
+	background: rgba(0, 0, 0, 0.15);
+	border-bottom: 1px solid rgba(75, 112, 182, 0.2);
+
+	.right {
+		margin: 0 60px;
+		float: right;
+		padding: 10px 0 0 0px; 
+		.total{
+			width: 300px; text-align: right; float: right;
+		}
+		time{width: 300px; text-align: right; float: right;}
+	}
+}
+#content{
+	margin:60px 0
+}
+#last_feats{
+	height: 450px;
+	background: rgba(0, 0, 0, 0.05);
+	padding: 40px 0px 0 0px;
+
+	margin:50px 0 0 0px;
+	width: 100%;
+/*	border-top: 1px solid rgba(75, 112, 182, 0.1);
+	border-bottom: 1px solid rgba(75, 112, 182, 0.1);*/
+	ul
+	{	position: relative;
+		width: 3000px;
+		float: right;
+		padding-right: 60px;
+		li{
+			overflow: hidden;
+			float:right;
+			text-align:center;
+			width:300px;
+			line-height:30px;
+			margin: 0 10px;
+			a{text-decoration: none; color:white; font-size: 30px; display: block;text-align: center}
+			.image{
+				background: url(images/feat_small_shadow.png) no-repeat center bottom;
+				padding-bottom:12px;
+				width: 270px;
+				display:inline;
+				img{border:5px solid white;width:250px;height:250px;}
+			}
+			time{color:$blue ;line-height:45px;font-size: 24px; display: block;}
+			author{text-transform: uppercase; font-weight: bold;font-family: "Ferb";display: block;}
+			h3{font-weight: normal; width: 250px;font-size: 24px; text-align: center;display: inline-block;}
+		}
+
+		li:first-child{
+			background-color: rgba(0, 0, 0, 0.15);
+			-webkit-border-radius: 10px;
+			width:550px;
+			line-height:30px;
+			padding: 20px 0;
+			margin-top: -70px;
+			a{text-decoration: none; color:white; font-size: 30px; }
+			.image{
+				background: url(images/feat_large_shadow.png) no-repeat center bottom;
+				padding-bottom:12px;
+				width: 507px;
+				display:inline;
+				img{border:5px solid white;width:500px;height:500px;margin-left: 7px}
+			}
+			time{color:$blue ;line-height:45px;font-size: 24px}
+			author{text-transform: uppercase; font-weight: bold;}
+			h3{font-weight: normal; width: 250px;font-size: 24px; text-align: center;display: inline-block;}
+		}
+	}
+	
+}
+
+h2{
+	font-family: "Ferb";
+	color: $blue;
+	margin-left: 60px;
+	font-size: 72px;
+	bottom: 60px;
+	position: absolute;
+}
