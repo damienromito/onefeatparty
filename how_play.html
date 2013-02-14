@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# onefeat: http://ogp.me/ns/fb/onefeat# profile: http://ogp.me/ns/profile#">
+  <meta property="fb:app_id" content="116191848453944" />
+  <meta charset=UTF-8>
+  <title>Onefeat - Party</title>
+  <meta name="description" content="feat /fēt/ noun. An act of skill, endurance, imagination, or strength; an achievement.">
+
+  <link rel="stylesheet" type="text/css" href="clear.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="libs/underscore-min.js" type="text/javascript" charset="utf-8" ></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="libs/timeago.js" type="text/javascript" charset="utf-8" ></script>
+  <script src="party.js"></script>
+
+</head>
+<body>
+  <div id="background"></div>
+  <header class="clearfix">
+    <h1>ONEFEAT PARTY</h1>
+    <div class="right">
+      <time></time>
+      <span class="total">
+        <span class="number">0</span> feats
+      </span>
+      
+    </div>
+  </header>
+  <div id="content" class=" clearfix">
+
+    <div id="missions_theme" >
+      <h3>FEATS YOU COULD DO IN THE ONEFEAT PARTY</h3>
+      <ul  class=" clearfix">
+
+        <script id="feat_template" type="text/html">
+            <li>
+                <img src="<%- url %>">
+            </li>
+        </script>
+
+      </ul>
+    </div>
+    <h2>DOWNLOAD THIS APP. TAKE PHOTOS TO DO THIS FEATS </h2>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+     $(document).ready(function(){
+      party_all_feats.initialize();
+    });
+  </script>
+</body>
+</html>

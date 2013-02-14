@@ -1,5 +1,5 @@
 
-party_theme = {
+party_all_feats = {
 
 	feats_of_theme_count:2,
 
@@ -11,16 +11,13 @@ party_theme = {
 
 party = {
 
-
-	initialize :function(){
-		party.clock();
-	},
-
 	interval_ms:5000, //interval reload
 	feats_number : 0,
 	feats_array : [],
-	init_last_feats:function(){
+	feats_displayed : [],
 
+	initialize :function(){
+		party.clock();
 		$.getJSON('http://onefeat.com/feats/of_the_quest_of_week.json?api=v3&callback=?', function(datas) {
 			for(i = datas.photos.length-1 ; i >  0; i-- )
 			{
@@ -38,8 +35,6 @@ party = {
 	    $("#content").css('margin-top',window.innerHeight/2 - content_height/1.2);
 	},
 
-
-	feats_displayed : [],
 	poolRequest:function()
 	{
 		
