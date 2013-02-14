@@ -1,4 +1,20 @@
 
+
+
+top = {
+
+
+	initialize :function(){
+		party.clock();
+	
+
+		$("#top").css("margin", window.innerHeight/20+"px 0");
+	},
+
+
+
+}
+
 all_missions = {
 
 	feats_of_theme_count:13,

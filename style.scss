@@ -194,3 +194,91 @@ h2{
 
 	}
 }
+
+
+#top{
+	margin-top: 100px;
+	.player{
+		color: white;
+		font-size: 42px;
+		width: 640px;
+		-webkit-border-radius: 10px;
+		background: rgba(0, 0, 0, 0.15);	
+		padding: 30px;
+		.position{font-style: italic;font-weight: bold; font-family: "Ferb"; width: 100%; text-align: center;margin: 0px 0 20px 0}
+		.details{
+			margin: 0 0 20px 0;
+			img{float: left;width: 100px;height: 100px; margin-right: 20px;}
+			p{float: left;display: block;line-height: 1.2em}
+			author{text-transform: uppercase; font-weight: bold;display: block}
+
+		}
+		ul{
+			margin-top: 40px;
+			li:first-child{
+				.feat{margin: 5px 5px 10px 0;}
+			}
+			li:last-child{
+				.feat{margin: 5px  0 10px 5px ;}
+			}
+			li{
+				float: left;
+				.feat{width: 200px; height: 200px; border:3px solid white;margin: 5px 5px 10px 5px}
+				p{ text-align: center;line-height: 0.5em }
+			}
+		}
+	}
+
+
+	.first, .second, .third{
+
+		float: left;
+		margin: 0 60px
+	}
+
+	.first{
+		margin-top: 0px
+	}
+
+	.second{
+		margin-top: 70px
+	}
+
+	.third{
+		margin-top: 150px
+	}
+
+	.second, .third{
+		.player{
+			width: 430px;
+		}
+		
+		.details{
+			text-align: center;
+			width: 100%;
+			img {display: none}
+			p{width: 100%}
+		}
+
+		ul{
+
+			li:last-child{
+				display:none;
+				
+			}
+
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
