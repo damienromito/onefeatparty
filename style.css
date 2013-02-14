@@ -81,9 +81,18 @@ header {
       text-align: right;
       float: right; }
 
+h2 {
+  font-family: "Ferb";
+  color: #63849d;
+  margin-left: 60px;
+  font-size: 72px;
+  bottom: 60px;
+  position: absolute; }
+
 #content {
   margin: 60px 0; }
 
+/******************** PAGES **************************/
 #last_feats {
   height: 450px;
   background: rgba(0, 0, 0, 0.05);
@@ -99,7 +108,7 @@ header {
     padding-right: 60px; }
     #last_feats ul li {
       -webkit-transition-property: width, padding-top, margin-top, background-color;
-      -webkit-transition-duration: 1s, 1s;
+      -webkit-transition-duration: 1500ms, 1500ms;
       background-color: rgba(0, 0, 0, 0);
       overflow: hidden;
       float: right;
@@ -119,7 +128,7 @@ header {
         display: inline; }
         #last_feats ul li .image img {
           -webkit-transition-property: width, height;
-          -webkit-transition-duration: 1s, 1s;
+          -webkit-transition-duration: 1500ms, 1500ms;
           border: 5px solid white;
           width: 250px;
           height: 250px; }
@@ -140,44 +149,21 @@ header {
         text-align: center;
         display: inline-block; }
     #last_feats ul li:first-child {
-      width: 0px;
       background-color: rgba(0, 0, 0, 0.15);
       -webkit-border-radius: 10px;
-      line-height: 30px;
       padding: 20px 0;
       margin-top: -70px; }
-      #last_feats ul li:first-child a {
-        text-decoration: none;
-        color: white;
-        font-size: 30px; }
       #last_feats ul li:first-child .image {
         background: url(images/feat_large_shadow.png) no-repeat center bottom;
-        padding-bottom: 12px;
-        width: 507px;
-        display: inline; }
+        width: 507px; }
         #last_feats ul li:first-child .image img {
-          border: 5px solid white;
+          border-width: 7px;
           width: 500px;
           height: 500px;
           margin-left: 7px; }
-      #last_feats ul li:first-child time {
-        color: #63849d;
-        line-height: 45px;
-        font-size: 24px; }
-      #last_feats ul li:first-child author {
-        text-transform: uppercase;
-        font-weight: bold; }
-      #last_feats ul li:first-child h3 {
-        font-weight: normal;
-        width: 250px;
-        font-size: 24px;
-        text-align: center;
-        display: inline-block; }
 
-h2 {
+#missions_theme h3 {
   font-family: "Ferb";
   color: #63849d;
   margin-left: 60px;
-  font-size: 72px;
-  bottom: 60px;
-  position: absolute; }
+  font-size: 72px; }

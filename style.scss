@@ -1,5 +1,5 @@
 $blue : #63849d;
-
+$transition_duration : 1500ms;
 
 @font-face {
   font-family: 'Ferb';
@@ -71,10 +71,22 @@ header{
 		time{width: 300px; text-align: right; float: right;}
 	}
 }
+
+
+h2{
+	font-family: "Ferb";
+	color: $blue;
+	margin-left: 60px;
+	font-size: 72px;
+	bottom: 60px;
+	position: absolute;
+}
+
 #content{
 	margin:60px 0
 }
 
+/******************** PAGES **************************/
 
 #last_feats{
 	height: 450px;
@@ -86,13 +98,11 @@ header{
 /*	border-top: 1px solid rgba(75, 112, 182, 0.1);
 	border-bottom: 1px solid rgba(75, 112, 182, 0.1);*/
 	ul
-	{	position: relative;
-		width: 4000px;
-		float: right;
-		padding-right: 60px;
+	{	
+		position: relative; width: 4000px; float: right; padding-right: 60px;
 		li{
 			-webkit-transition-property:  width, padding-top, margin-top, background-color;
-			-webkit-transition-duration: 1s, 1s;
+			-webkit-transition-duration: $transition_duration, $transition_duration;
 			background-color: rgba(0, 0, 0, 0);
 			overflow: hidden;
 			float:right;
@@ -107,7 +117,7 @@ header{
 				display:inline;
 				img{
 					-webkit-transition-property:  width, height;
-					-webkit-transition-duration: 1s, 1s;
+					-webkit-transition-duration: $transition_duration, $transition_duration;
 					border:5px solid white;
 					width:250px;
 					height:250px;
@@ -119,35 +129,28 @@ header{
 		}
 
 		li:first-child{
-		
-			width:0px;
 			background-color: rgba(0, 0, 0, 0.15);
 			-webkit-border-radius: 10px;
-			line-height:30px;
 			padding: 20px 0;
 			margin-top: -70px;
-			a{text-decoration: none; color:white; font-size: 30px; }
 			.image{
 				background: url(images/feat_large_shadow.png) no-repeat center bottom;
-				padding-bottom:12px;
 				width: 507px;
-				display:inline;
-				img{border:5px solid white;width:500px;height:500px;margin-left: 7px}
+				img{border-width:7px ;width:500px;height:500px;margin-left: 7px}
 			}
-			time{color:$blue ;line-height:45px;font-size: 24px}
-			author{text-transform: uppercase; font-weight: bold;}
-			h3{font-weight: normal; width: 250px;font-size: 24px; text-align: center;display: inline-block;}
 		}
 
 	}
 	
 }
 
-h2{
-	font-family: "Ferb";
-	color: $blue;
-	margin-left: 60px;
-	font-size: 72px;
-	bottom: 60px;
-	position: absolute;
+#missions_theme
+{
+	h3{
+		font-family: "Ferb";
+		color: $blue;
+		margin-left: 60px;
+		font-size: 72px;
+	}
+
 }
