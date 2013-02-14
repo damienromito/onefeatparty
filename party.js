@@ -1,6 +1,4 @@
-
-animation_duration = 1000;
-animation_ongoing = false;
+;
 party = {
 
 	feats_number : 0,
@@ -14,51 +12,29 @@ party = {
 	addFeat:function(datas)
 	{
 
-		//if !first feat
-		if(party.feats_displayed.length > 0)
+		//resize old elem
+		$('#last_feats ul li:first-child').width(300);
+	
+		//create elem
+		new_feat =_.template($( "#feat_template" ).html())(datas);
+		$('#last_feats ul').prepend(new_feat);
+		$('.timeago').timeago();
+		party.feats_number ++;
+		party.reload_feats_number();
+		
+		//display new elem
+		new_elem = $('#last_feats ul li:first-child');
+		new_elem.width(550);
+
+		//clean elements
+		party.feats_displayed.push(new_elem);
+		if(party.feats_displayed.length > 10)
 		{
-			old_elem = $('#last_feats ul li:first-child');
-			old_elem.css('background-color', "transparent");
-			old_elem.animate({'margin-top': 0, 'padding-top' : 0},animation_duration);
-			old_elem.find('img').animate({
-				width : 250,
-				height : 250,
-			}, animation_duration, function(){
-				display(old_elem);
-			});
-		}else display();
-
-
-		function display(old_elem){
-			animation_ongoing= true;
-			//create elem
-			new_feat =_.template($( "#feat_template" ).html())(datas);
-
-			$('#last_feats ul').prepend(new_feat);
-			$('.timeago').timeago();
-			party.feats_number ++
-			party.reload_feats_number();
-			
-			//display new elem
-			new_elem = $('#last_feats ul li:first-child');
-			party.feats_displayed.push(new_elem);
-			new_elem.width(0);
-			new_elem.css('opacity', '0');
-			new_elem.animate({ width : 550, opacity : 1 },animation_duration);
-			if(old_elem)
-				old_elem.animate({width : 300},animation_duration, function(){
-					animation_ongoing= false;
-				});
-			
-			//remove very old element
-			if(party.feats_displayed.length > 10)
-			{
-				console.log('hey');
-				el = party.feats_displayed[0];
-				party.feats_displayed.shift();
-				el.remove();
-			}
+			el = party.feats_displayed[0];
+			party.feats_displayed.shift();
+			el.remove();
 		}
+		
 	
 	}, 
 

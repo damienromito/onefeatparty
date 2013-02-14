@@ -74,6 +74,8 @@ header{
 #content{
 	margin:60px 0
 }
+
+
 #last_feats{
 	height: 450px;
 	background: rgba(0, 0, 0, 0.05);
@@ -85,14 +87,16 @@ header{
 	border-bottom: 1px solid rgba(75, 112, 182, 0.1);*/
 	ul
 	{	position: relative;
-		width: 3000px;
+		width: 4000px;
 		float: right;
 		padding-right: 60px;
 		li{
+			-webkit-transition-property:  width, padding-top, margin-top, background-color;
+			-webkit-transition-duration: 1s, 1s;
+			background-color: rgba(0, 0, 0, 0);
 			overflow: hidden;
 			float:right;
 			text-align:center;
-			width:300px;
 			line-height:30px;
 			margin: 0 10px;
 			a{text-decoration: none; color:white; font-size: 30px; display: block;text-align: center}
@@ -101,7 +105,13 @@ header{
 				padding-bottom:12px;
 				width: 270px;
 				display:inline;
-				img{border:5px solid white;width:250px;height:250px;}
+				img{
+					-webkit-transition-property:  width, height;
+					-webkit-transition-duration: 1s, 1s;
+					border:5px solid white;
+					width:250px;
+					height:250px;
+				}
 			}
 			time{color:$blue ;line-height:45px;font-size: 24px; display: block;}
 			author{text-transform: uppercase; font-weight: bold;font-family: "Ferb";display: block;}
@@ -109,9 +119,10 @@ header{
 		}
 
 		li:first-child{
+		
+			width:0px;
 			background-color: rgba(0, 0, 0, 0.15);
 			-webkit-border-radius: 10px;
-			width:550px;
 			line-height:30px;
 			padding: 20px 0;
 			margin-top: -70px;
@@ -127,6 +138,7 @@ header{
 			author{text-transform: uppercase; font-weight: bold;}
 			h3{font-weight: normal; width: 250px;font-size: 24px; text-align: center;display: inline-block;}
 		}
+
 	}
 	
 }

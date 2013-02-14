@@ -94,14 +94,16 @@ header {
   	border-bottom: 1px solid rgba(75, 112, 182, 0.1);*/ }
   #last_feats ul {
     position: relative;
-    width: 3000px;
+    width: 4000px;
     float: right;
     padding-right: 60px; }
     #last_feats ul li {
+      -webkit-transition-property: width, padding-top, margin-top, background-color;
+      -webkit-transition-duration: 1s, 1s;
+      background-color: rgba(0, 0, 0, 0);
       overflow: hidden;
       float: right;
       text-align: center;
-      width: 300px;
       line-height: 30px;
       margin: 0 10px; }
       #last_feats ul li a {
@@ -116,6 +118,8 @@ header {
         width: 270px;
         display: inline; }
         #last_feats ul li .image img {
+          -webkit-transition-property: width, height;
+          -webkit-transition-duration: 1s, 1s;
           border: 5px solid white;
           width: 250px;
           height: 250px; }
@@ -136,9 +140,9 @@ header {
         text-align: center;
         display: inline-block; }
     #last_feats ul li:first-child {
+      width: 0px;
       background-color: rgba(0, 0, 0, 0.15);
       -webkit-border-radius: 10px;
-      width: 550px;
       line-height: 30px;
       padding: 20px 0;
       margin-top: -70px; }
