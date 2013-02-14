@@ -37,24 +37,28 @@ all_feats = {
 	initialize :function(){
 		party.clock();
 
-		//height = 
+		console.log("bla");
+		initGrid();
 
-		//width = $("#all_feats").width();
-		//height = (window.innerHeight)-350;
-		$("#all_feats").height(height);
-		$.getJSON('http://onefeat.com/feats/of_the_quest_of_week.json?api=v3&callback=?', function(datas) {
+		$.getJSON('http://onefeat.com/feats/of_the_quest_of_week.json?api=v3&callback=?', function(data) {
 			
-			length = datas.photos.length;
+			imgsArray = new Array;
+			while (imgsArray.length<divsCounter*1.5) {	imgsArray = imgsArray.concat(data.photos);}
 
-			for(i = datas.photos.length-1 ; i >  0; i-- )
-			{
-				//$("#all_feats").append("<img src='"+ datas.photos[i].sizes.normal+"'/>");
-			}
+			imgsArray.sort(function() {return 0.5 - Math.random()});
+
+			$.each( imgsArray, function(i, feat){
+				var i = getRandomInt(0,1);
+				console.log(i);
+   			addBackgroundToDiv(i, feat.sizes.normal);
+ 			});
+
+ 			activeSlide = $("#grid div").eq(Math.floor(Math.random()*$("#grid div").length));
+			slideSwitch(activeSlide);
+
 		});
 
-		// setInterval(function() {
-	 //        all_feats.poolRequest();
-	 //    }, all_feats.interval_ms);
+	
 	
 	},
 
@@ -82,7 +86,6 @@ all_feats = {
 
 }
 
-
 party = {
 
 	interval_ms:5000, //interval reload
@@ -91,6 +94,7 @@ party = {
 	feats_displayed : [],
 
 	initialize :function(){
+
 		party.clock();
 		$.getJSON('http://onefeat.com/feats/of_the_quest_of_week.json?api=v3&callback=?', function(datas) {
 			for(i = datas.photos.length-1 ; i >  0; i-- )
