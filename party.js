@@ -1,16 +1,66 @@
 
+top_users = {
 
-
-top = {
-
-
+	url: 'http://onefeat.com/quests/150/ranking_at_time.json?api=v3&since_time=2/15/2013&callback=?',
+	players_id_array: [],
+	interval_ms : 2000,
 	initialize :function(){
 		party.clock();
+		$("#top").css("margin", window.innerHeight/20+"px 30px");
+		$.getJSON(top_users.url, function(data) {
+			top_users.update_top(data.users);
+		});
+		setInterval(function() {
+	        	top_users.update_changement();
+	    }, top_users.interval_ms);
 	
-
-		$("#top").css("margin", window.innerHeight/20+"px 0");
 	},
+	update_changement:function(){
+		
+		$.getJSON(top_users.url, function(data) {
+			
+			for(i = 0; i<data.users.length; i++)
+			{
+				if(top_users.players_id_array[i] != data.users[i].id)
+				{
+					top_users.update_top(data.users);
+				}
+					
+			}
+			
+		});
 
+	},
+	update_top:function(datas){
+		top_users.players_id_array = [];
+		$('#top .others').html('');
+		$.each( datas, function(i, user){
+
+			top_users.players_id_array[i] = user.id;
+
+			if(i == 0)
+			{
+				first = _.template($( "#player_template" ).html())(user, position='1');
+				$('#top .first').html(first);
+			}
+			else if(i == 1 )
+			{
+				second = _.template($( "#player_template" ).html())(user, position='2');
+				$('#top .second').html(second);
+			}
+			else if(i == 2)
+			{
+				third = _.template($( "#player_template" ).html())(user, position='3');
+				$('#top .third').html(third);
+			}
+			else if(i <12)
+			{
+				$('#top .others').append("<p>"+ (i+1) +" "+user.username +"</p>")
+			}else return;
+
+ 		});
+
+	},
 
 
 }
@@ -23,7 +73,7 @@ all_missions = {
 		party.clock();
 		all_missions.generate_feats();
 
-		$("#missions_theme div").css("margin", window.innerHeight/20+"px 0");
+		$("#missions_theme div").css("margin", window.innerHeight/10+"px 0");
 	},
 
 	generate_feats:function(){
@@ -47,16 +97,25 @@ all_missions = {
 
 
 all_feats = {
+	url : 'http://onefeat.com/feats/of_the_quest_of_week.json?api=v3&callback=?',
 	interval_ms:5000, //interval reload
 	feats_of_theme_count:8,
+	init:false,
 
 	initialize :function(){
 		party.clock();
-
-		console.log("bla");
+		
 		initGrid();
 
-		$.getJSON('http://onefeat.com/feats/of_the_quest_of_week.json?api=v3&callback=?', function(data) {
+		setInterval(function() {
+	        	all_feats.poolRequest();
+	    }, all_feats.interval_ms);
+	
+	},
+
+	poolRequest:function()
+	{
+		$.getJSON(all_feats.url, function(data) {
 			
 			imgsArray = new Array;
 			while (imgsArray.length<divsCounter*1.5) {	imgsArray = imgsArray.concat(data.photos);}
@@ -70,32 +129,13 @@ all_feats = {
  			});
 
  			activeSlide = $("#grid div").eq(Math.floor(Math.random()*$("#grid div").length));
-			slideSwitch(activeSlide);
 
-		});
-
-	
-	
-	},
-
-	poolRequest:function()
-	{
-		
-		$.getJSON('http://onefeat.com/feats/of_the_quest_of_week.json?api=v3&callback=?', function(datas) {
-			
-			$.each(datas.photos, function(i, feat) {
-			    if(party.feats_array[party.feats_array.length-1] == feat.id)
-				{
-
-					for(j = i-1 ; j > 0; j--  )
-					{
-						party.addFeat(datas.photos[j]);
-					}
-					return;
-				}
-			});
-
-			//party.addFeat(datas.photos[0]);
+ 			if(!all_feats.init)
+ 			{
+				slideSwitch(activeSlide);
+				all_feats.init = true;
+			}
+			$('.number').html(data.total)
 		});
 	
 	},
@@ -103,16 +143,16 @@ all_feats = {
 }
 
 party = {
-
+	url: "http://onefeat.com/feats/recent.json?api=v3&page=1&callback=?",
 	interval_ms:5000, //interval reload
 	feats_number : 0,
 	feats_array : [],
 	feats_displayed : [],
 
 	initialize :function(){
-
+		//'http://onefeat.com/feats/of_the_quest_of_week.json?api=v3&callback=?'
 		party.clock();
-		$.getJSON('http://onefeat.com/feats/of_the_quest_of_week.json?api=v3&callback=?', function(datas) {
+		$.getJSON(party.url, function(datas) {
 			for(i = datas.photos.length-1 ; i >  0; i-- )
 			{
 				party.addFeat(datas.photos[i]);
@@ -126,13 +166,13 @@ party = {
 	    //center
 	    content_height =$("#content").height();
 
-	    $("#content").css('margin-top',window.innerHeight/2 - content_height/1.2);
+	    $("#content").css('margin-top',window.innerHeight/2 - content_height/2);
 	},
 
 	poolRequest:function()
 	{
 		
-		$.getJSON('http://onefeat.com/feats/of_the_quest_of_week.json?api=v3&callback=?', function(datas) {
+		$.getJSON(party.url, function(datas) {
 			
 			$.each(datas.photos, function(i, feat) {
 			    if(party.feats_array[party.feats_array.length-1] == feat.id)
@@ -196,7 +236,7 @@ party = {
 		    if(h >= 12){suffix = "PM";h = h - 12;}
 		    if(h == 0){h = 12;}
 		   // if(h < 10){h = "0" + h ;}
-		    //if(m < 10){m = "0" + m ;}
+		    if(m < 10){m = "0" + m ;}
 		         
 		    $("header time").html(h+":"+m+" "+suffix);
 	    },1000);

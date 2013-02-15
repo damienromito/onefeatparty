@@ -84,7 +84,7 @@ header {
 
 footer {
   position: absolute;
-  bottom: 60px;
+  bottom: 30px;
   z-index: 100; }
 
 h2 {
@@ -95,7 +95,7 @@ h2 {
 
 #content {
   position: relative;
-  height: 800px; }
+  height: 770px; }
 
 /******************** PAGES **************************/
 #last_feats {
@@ -208,7 +208,6 @@ div.back div p a {
 #grid, #layer {
   overflow: hidden;
   position: absolute;
-  top: 50px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -263,7 +262,17 @@ div.back div p a {
     height: 200px; }
 
 #top {
-  margin-top: 100px; }
+  margin: 100px 30px 0 30px; }
+  #top .others {
+    margin: 30px 60px 60px 60px;
+    width: 100%;
+    clear: both;
+    font-size: 42px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    height: 150px;
+    -webkit-column-count: 3; }
   #top .player {
     color: white;
     font-size: 42px;
@@ -311,7 +320,7 @@ div.back div p a {
           line-height: 0.5em; }
   #top .first, #top .second, #top .third {
     float: left;
-    margin: 0 60px; }
+    margin: 0 30px; }
   #top .first {
     margin-top: 0px; }
   #top .second {
@@ -327,5 +336,5 @@ div.back div p a {
       display: none; }
     #top .second .details p, #top .third .details p {
       width: 100%; }
-  #top .second ul li:last-child, #top .third ul li:last-child {
+  #top .second ul li:nth-child(3), #top .third ul li:nth-child(3) {
     display: none; }

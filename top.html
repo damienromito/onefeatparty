@@ -20,118 +20,71 @@
     <h1>ONEFEAT PARTY</h1>
     <div class="right">
       <time></time>
-      <span class="total">
-        <span class="number">0</span> feats
-      </span>
+ 
       
     </div>
   </header>
   <div id="content" class=" clearfix">
     <div id="top" >
+      <div class="clearfix">
+          <div class="second">
 
-      <div class="second">
+      
 
-         <div class="player">
-          <div class="position">2</div>
-          <div class="details clearfix">
-            <img src="images/test.jpg"/>
-            <p>
-              <author>ArthurHarnois</author>
-              
-              <strong class="feats">7</strong> feats 
-               &nbsp;
-              <strong class="likes">15</strong> likes
-            </p>
-           
           </div>
-          <ul class="clearfix" >
-              <li>
-              <img class="feat" src="images/test.jpg"/>
-              <p >5 <img src="images/heart.png"/> </p> 
-            </li> <li>
-              <img class="feat" src="images/test.jpg"/>
-              <p >5 <img src="images/heart.png"/> </p> 
-            </li>
-             <li>
-              <img class="feat" src="images/test.jpg"/>
-              <p >5 <img src="images/heart.png"/> </p> 
-            </li>
-          </ul>
-        </div>
 
-      </div>
+          <div class="first">
 
-      <div class="first">
+            
 
-        <div class="player">
-          <div class="position">1</div>
-          <div class="details clearfix">
-            <img src="images/test.jpg"/>
-            <p>
-              <author>ArthurHarnois</author>
-              
-              <strong class="feats">7</strong> feats 
-               &nbsp;
-              <strong class="likes">15</strong> likes
-            </p>
-           
+
           </div>
-          <ul class="clearfix" >
-              <li>
-              <img class="feat" src="images/test.jpg"/>
-              <p >5 <img src="images/heart.png"/> </p> 
-            </li> <li>
-              <img class="feat" src="images/test.jpg"/>
-              <p >5 <img src="images/heart.png"/> </p> 
-            </li>
-             <li>
-              <img class="feat" src="images/test.jpg"/>
-              <p >5 <img src="images/heart.png"/> </p> 
-            </li>
-          </ul>
-        </div>
+          <div class="third">
+
+            
 
 
-      </div>
-      <div class="third">
-
-        <div class="player">
-          <div class="position">3</div>
-          <div class="details clearfix">
-            <img src="images/test.jpg"/>
-            <p>
-              <author>ArthurHarnois</author>
-              
-              <strong class="feats">7</strong> feats 
-               &nbsp;
-              <strong class="likes">15</strong> likes
-            </p>
-           
           </div>
-          <ul class="clearfix" >
-              <li>
-              <img class="feat" src="images/test.jpg"/>
-              <p >5 <img src="images/heart.png"/> </p> 
-            </li> <li>
-              <img class="feat" src="images/test.jpg"/>
-              <p >5 <img src="images/heart.png"/> </p> 
-            </li>
-             <li>
-              <img class="feat" src="images/test.jpg"/>
-              <p >5 <img src="images/heart.png"/> </p> 
-            </li>
-          </ul>
-        </div>
 
-      </div>
+          <script id="player_template" type="text/html">
+            <div class="player">
+              <div class="position"><%- position %></div>
+              <div class="details clearfix">
+                <img src="<%- avatar_image %>"/>
+                <p>
+                  <author><%- username %></author>
+                  
+                  <strong class="feats"><%- feats_count_for_quest %></strong> feats 
+                   &nbsp;
+                  <strong class="likes"><%- likes_count_for_quest %></strong> likes
+                </p>
+               
+              </div>
+              <ul class="clearfix" >
+                <% console.log('reafe'); _.each( top_feat_for_quest, function(photo){  console.log(photo); %>
+                <li>
+                  <img class="feat" src="<%- photo.sizes.normal %>"/>
+                  <p ><%- photo.likes_count %> <img src="images/heart.png"/> </p> 
+                </li>
+                <% }); %>
+              </ul>
+            </div>
+          </script>
+                 
+
      
+      </div>
+      <div class="others">
+
+      </div>
+  
 
     </div>
 <!--     <h2>ALL PARTY'S FEATS</h2> -->
   </div>
   <script type="text/javascript" charset="utf-8">
     $(document).ready(function(){
-      top.initialize();
+      top_users.initialize();
     });
   </script>
 </body>
